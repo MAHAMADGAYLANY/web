@@ -1,0 +1,9 @@
+customer_id,name,email,phone,address,city,orders
+C001,Ava Smith,ava@example.com,5551234567,12 Oak Street,Erbil,4
+C002,Liam Brown,liam@example.com,5559876543,8 River Road,Duhok,2
+C003,Noah Wilson,noah@example.com,5552223344,45 Garden Avenue,Sulaymaniyah,7
+C004,Emma Davis,emma@example.com,5553337788,21 Market Street,Erbil,1
+C005,Olivia Taylor,olivia@example.com,5554449900,9 Hill Road,Kirkuk,3
+C006,James Anderson,james@example.com,5556661122,17 Lake Street,Erbil,5
+C007,Sophia Thomas,sophia@example.com,5557772233,30 Park Lane,Duhok,2
+C008,Benjamin Moore,ben@example.com,5558883344,5 Main Street,Erbil,6

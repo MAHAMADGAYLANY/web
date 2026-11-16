@@ -1,0 +1,41 @@
+{# base.html: the frame shared by EVERY page (header + menu).
+   Other pages "extend" this file and fill in the {% block body %} part. #}
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بازاڕی پارێزراو</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="{{ url_for('home') }}">بازاڕی پارێزراو</a>
+    <nav>
+      <a href="{{ url_for('products') }}">فرۆشگا</a>
+      <a href="{{ url_for('cart') }}">سەبەت <b>{{ cart_count|default(0)|format_number }}</b></a>
+
+      {# Different links depending on whether staff are logged in #}
+      {% if session.username %}
+        <a href="{{ url_for('admin_dashboard') }}">داشبۆرد</a>
+        <a href="{{ url_for('logout') }}">چوونەدەرەوە</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">چوونەژوورەوەی کارمەندان</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {# Small messages from app.py, e.g. "Product added to your cart." #}
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+      <p class="flash {{ category }}">{{ message }}</p>
+    {% endfor %}
+
+    {# Each page puts its own content here #}
+    {% block body %}{% endblock %}
+  </main>
+
+</body>
+</html>

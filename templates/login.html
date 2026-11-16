@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureShop | Sign in</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <div class="brand-mark">S</div>
+    <p class="eyebrow">ECOMMERCE DATA SECURITY</p>
+    <h1>SecureShop</h1>
+    <p class="muted">Sign in to the privacy-aware store dashboard.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="notice {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+      <label>Username</label>
+      <input name="username" required placeholder="Enter username">
+      <label>Password</label>
+      <input name="password" type="password" required placeholder="Enter password">
+      <button class="primary full" type="submit">Sign in</button>
+    </form>
+
+    <div class="demo-accounts">
+      <strong>Demo accounts</strong>
+      <p>Admin: <code>admin</code> / <code>admin123</code></p>
+      <p>Analyst: <code>analyst</code> / <code>analyst123</code></p>
+    </div>
+  </main>
+</body>
+</html>

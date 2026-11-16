@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+database.db
+secret.key
+uploads/
+outputs/
+
+.env
+.vscode/
